@@ -18,7 +18,6 @@ function appReducer(state, action) {
                     id: Date.now(),
                     text: action.payload,
                     completed: false,
-                    show: true,
                 },
             ];
         }
@@ -64,20 +63,44 @@ function appReducer(state, action) {
     }
 }
 
+// function useFirestore(){
+//     app
+//         .firestore()
+//         .collection('users')
+//         .onSnapshot(snapshot => {
+//             const Tasks =
+//         })
+// }
+
+
 
 export const Context = React.createContext(null);
 
-
 export default function App() {
     const [state, dispatch] = useReducer(appReducer, []);
+    const currentUser = useContext(AuthContext);
     const textBox = useRef(null);
-    const { currentUser } = useContext(AuthContext);
 
+    function onSave() {
+        // localStorage.setItem('data', JSON.stringify(state));
+        app.firestore().collection('users').doc(currentUser.currentUser.uid).update({task: JSON.stringify(state)}).then();
+    }
 
     useEffect(() => {
-        const raw = localStorage.getItem('data');
-        dispatch({type: 'reset', payload: raw ? JSON.parse(raw) : []})
+        app.firestore().collection('users').doc(currentUser.currentUser.uid).get().then(doc => {
+            const raw = (doc.data().task);
+            dispatch({type: 'reset', payload: raw ? JSON.parse(raw) : []})
+        }).catch(err => {
+            app.firestore().collection('users').doc(currentUser.currentUser.uid).set({task: ''}).then();
+        });
     }, []);
+
+    //save the data as a string to the firebase server, then receive it back and JSON.parse it
+
+    // useEffect(() => {
+    //     const raw = localStorage.getItem('data');
+    //     dispatch({type: 'reset', payload: raw ? JSON.parse(raw) : []})
+    // }, []);
 
     // useEffect(
     //     () => {
@@ -108,7 +131,7 @@ export default function App() {
                         <div className="controls">
                             <button onClick={() => addTask()}>New Todo</button>
                             <input type="text" onChange={(e) => setText(e.target.value)} ref={textBox}/>
-                            <button onClick={() => localStorage.setItem('data', JSON.stringify(state))}>Save</button>
+                            <button onClick={() => onSave()}>Save</button>
                         </div>
                         <TodosList items={state}/>
                     </Context.Provider>
