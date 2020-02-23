@@ -1,150 +1,217 @@
-.task-div{
-  width: 25%;
-  height: 200px;
-  flex-basis: 20%;
-  border-radius: 5px;
-  margin: 2rem 3rem;
-  position: relative;
-  background: url("notepad.jpg") 0 0/100% 100%;
-  box-shadow: 5px 10px 18px black;
+
+.task-div {
+    width: 25%;
+    height: 200px;
+    flex-basis: 20%;
+    border-radius: 5px;
+    margin: 2rem 3rem;
+    position: relative;
+    background: url("notepad.jpg") 0 0/100% 100%;
+    box-shadow: 5px 10px 18px black;
 }
 
-.todoList{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+#saveButton{
+    border: none;
+    outline: none;
+    background-color: black;
+    color: #efb702;
+    font-size: large;
+    height: 30px;
+    padding: 5px auto;
+    width: 80%;
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
 }
 
-.task-div button{
-  position: absolute;
-  width: 100%;
-  height: 30px;
-  bottom: 0;
-  left: 0;
-  outline: none;
-  border: none;
-  background-color: #ff2437;
-  color: black;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+.addTaskTextBox{
+    height: 67.8%;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    white-space: initial;
+    overflow-style: marquee-block;
+    word-wrap: break-word;
+    text-align: center;
+    resize: none;
 }
 
-body{
-  background: url("notepad.jpg") 0 0/ 100% 100vw;
+.todoList button#add {
+    width: 25%;
+    text-align: center;
+    height: 200px;
+    flex-basis: 20%;
+    border-radius: 5px;
+    margin: 2rem 0 5rem 0;
+    position: relative;
+    box-shadow: 5px 10px 18px black;
+    opacity: 0.5;
+    outline: none;
 }
 
-*{
-  font-family: 'Abril Fatface', cursive;
+.todoList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-#navbar{
-  position: relative;
-  width: 100%;
-  height: 50px;
-  border-bottom: 2px solid black;
+.task-div button {
+    position: relative;
+    width: 100%;
+    height: 20%;
+    bottom: 0;
+    left: 0;
+    outline: none;
+    border: none;
+    background-color: #ff2437;
+    color: black;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+}
+
+.task-div input{
+    outline: none
+}
+
+/*.task-div input:nth-child(1){*/
+    /*flex-grow: 4;*/
+/*}*/
+
+html body {
+    background: url("notepad.jpg") 0 0/ 100% 100vw;
+    /*box-sizing: content-box;*/
+    /*background-color: #ffe146;*/
+    margin: 0;
+    /*position: relative;*/
+}
+
+* {
+    font-family: 'Abril Fatface', cursive;
+}
+
+#navbar {
+    /*position: absolute;*/
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid black;
 }
 
 
-#navbar #logo{
-  position: absolute;
-  z-index: 1000;
-  margin-left: 10px;
-  padding: 10px;
-  color: black;
-  font-size: large;
+#navbar #logo {
+    position: absolute;
+    z-index: 1000;
+    margin-left: 10px;
+    padding: 10px;
+    color: black;
+    font-size: large;
 }
 
-.content-body{
-  text-align: center;
-  position: absolute;
-  width: 100%;
-  height: max-content;
-  margin: 2rem;
+.content-body {
+    text-align: center;
+    /*position: absolute;*/
+    width: 100%;
+    height: max-content;
+    margin: 1rem 0;
+}
+.controls button:hover, .controls ~ button:hover {
+    border: 2px solid black;
 }
 
-.controls{
-  text-align: center;
-  margin-top: 5rem;
-  margin-right: 2.8rem;
+.nav-float-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    list-style-type: none;
+    height: 60px;
+    position: relative;
+    margin: 0 auto;
 }
 
-.controls button{
-  background: none;
-  outline: none;
-  border: none;
-  margin: 0 10px;
-  padding: 0 10px;
+.nav-float-right li {
+    margin-right: 1rem;
+    margin-top: 0.8rem;
 }
 
-.controls input{
-  background: none;
-  border: 2px solid black;
-  width: 30%;
-}
-
-.controls button:hover{
-  border: 2px solid black;
-}
-
-.nav-float-right{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  list-style-type: none;
-  height: 60px;
-  position: relative;
-  margin: 0 auto;
-}
-
-.nav-float-right li{
-  margin-right: 1rem;
-  margin-top: 0.8rem;
-}
-
-.nav-float-right li button{
-  outline: none;
-  background: none;
-  border: none;
+.nav-float-right li button {
+    outline: none;
+    background: none;
+    border: none;
 }
 
 .nav-float-right li button:hover {
-  border-bottom: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
 
-.Login-container form{
-  display: flex;
-  flex-direction: column;
+.Login-container form {
+    display: flex;
+    flex-direction: column;
 }
 
 .Login-container button {
-  margin-right: 25%;
-  border: 2px solid black;
-  background: none;
+    margin-right: 25%;
+    border: 2px solid black;
+    background: none;
 }
 
-.Login-container button:focus{
-  box-shadow: 2px 5px 5px black;
+.Login-container button:focus {
+    box-shadow: 2px 5px 5px black;
 }
 
-.Login-container{
-  padding: 1rem 1rem;
-  position: relative;
-  margin-top: 3vw;
-  width: 50%;
-  height: max-content;
-  float: right;
+.Login-container {
+    padding: 1rem 1rem;
+    width: 50%;
+    height: max-content;
+    margin: 3vw 30%;
 }
 
-label input{
-  float: right;
-  width: 50%;
-  background: none;
-  border: 2px solid black;
-  margin-right: 25%;
+label input {
+    float: right;
+    width: 50%;
+    background: none;
+    border: 2px solid black;
+    margin-right: 25%;
 }
 
 label input:focus {
-  box-shadow: 2px 5px 9px black;
+    box-shadow: 2px 5px 9px black;
+}
+
+.modalBox {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-align: center;
+    font-size: larger;
+    width: max-content;
+    padding: 5px 15px;
+    height: 50px;
+    background: #2b2b2b;
+    color: #efb702;
+    z-index: 2000;
+    animation-duration: 4s;
+    animation-name: fade;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0
+    }
+    25% {
+        opacity: 100%
+    }
+    75% {
+        opacity: 100%
+    }
+    100% {
+        opacity: 0
+    }
 }
