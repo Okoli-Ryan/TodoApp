@@ -1,13 +1,21 @@
 
-.task-div {
-    width: 25%;
+.task-div, .todoList button#add {
     height: 200px;
-    flex-basis: 20%;
     border-radius: 5px;
-    margin: 2rem 3rem;
+    margin: 2rem 2rem;
     position: relative;
-    background: url("notepad.jpg") 0 0/100% 100%;
     box-shadow: 5px 10px 18px black;
+}
+
+.task-div{
+    background: url("notepad.jpg") 0 0/100% 100%;
+}
+
+.todoList button#add {
+    text-align: center;
+    flex-basis: 12.7rem;
+    opacity: 0.5;
+    outline: none;
 }
 
 #saveButton{
@@ -40,24 +48,12 @@
     resize: none;
 }
 
-.todoList button#add {
-    width: 25%;
-    text-align: center;
-    height: 200px;
-    flex-basis: 20%;
-    border-radius: 5px;
-    margin: 2rem 0 5rem 0;
-    position: relative;
-    box-shadow: 5px 10px 18px black;
-    opacity: 0.5;
-    outline: none;
-}
-
 .todoList {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }
 
 .task-div button {
@@ -82,6 +78,13 @@
 /*.task-div input:nth-child(1){*/
     /*flex-grow: 4;*/
 /*}*/
+
+.loggedInAs{
+    position: relative;
+    float: right;
+    right: 1.5rem;
+    top: 0.5rem;
+}
 
 html body {
     background: url("notepad.jpg") 0 0/ 100% 100vw;
@@ -117,7 +120,7 @@ html body {
     /*position: absolute;*/
     width: 100%;
     height: max-content;
-    margin: 1rem 0;
+    margin: 1rem 0 3rem 0;
 }
 .controls button:hover, .controls ~ button:hover {
     border: 2px solid black;
@@ -166,7 +169,7 @@ html body {
 
 .Login-container {
     padding: 1rem 1rem;
-    width: 50%;
+    width: 60%;
     height: max-content;
     margin: 3vw 30%;
 }
@@ -214,4 +217,34 @@ label input:focus {
     100% {
         opacity: 0
     }
+}
+
+@media only screen and (max-width: 528px) {
+    .task-div, .todoList button#add {
+        flex-basis: 20rem;
+    }
+
+}
+
+@media only screen and (max-width: 768px){
+    .Login-container {
+        width: 80%;
+    }
+
+}
+
+@media only screen and (max-width: 600px){
+    .Login-container input{
+        width: 75%;
+    }
+
+    /*.todoList button#add {*/
+        /*flex-basis: 20rem;*/
+    /*}*/
+}
+
+@media only screen and (min-width: 900px) {
+    /*.todoList button#add {*/
+        /*flex-basis: 13.6rem;*/
+    /*}*/
 }

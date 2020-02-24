@@ -18,9 +18,7 @@ function Nav ({navFunction, redirection}) {
                 Todo-App
             </a>
             <ul className="nav-float-right">
-                <li>
-                    {currentUser.currentUser ? `Logged in as ${email}` : 'Not Logged in'}
-                </li>
+                    {/*{currentUser.currentUser ? `Logged in as ${email}` : {}}*/}
                 <li>
                     <button onClick={() => navFunction()}>
                         {redirection}

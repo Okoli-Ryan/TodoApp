@@ -142,6 +142,7 @@ export default function App() {
             <Modal show={showModal.view} Message={showModal.Message}/>
             <>
                 <Nav navFunction={() => app.auth().signOut()} redirection="Sign Out"/>
+                <div className="loggedInAs">{currentUser.currentUser ? `Logged in as ${currentUser.currentUser.email}` : {}}</div>
                 <div className="content-body">
                     <Context.Provider value={dispatch}>
                         <TodosList items={state} dispatch={dispatch}/>
