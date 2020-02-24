@@ -49,7 +49,7 @@ const Login = ({history}) => {
             <Nav navFunction={() => history.push('/signup')} redirection="Sign Up"/>
             <div className="Login-container">
                 <h1>Log in</h1>
-                <form onSubmit={handleLogin}>
+                <form onSubmit={handleLogin} ref={form}>
                     <label>
                         Email
                         <input name="email" type="email" placeholder="Email"/>
