@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useState} from "react";
+import React, {useCallback, useContext, useState, useRef} from "react";
 import {withRouter, Redirect} from "react-router";
 import app from "./firebase";
 import {AuthContext} from "./Auth.js";
@@ -7,6 +7,7 @@ import Modal from './Modal'
 
 const Login = ({history}) => {
     const [showModal, setShowModal] = useState({view: false, Message: ""});
+    const form = useRef(null);
 
     const handleLogin = useCallback(
         async event => {
@@ -17,12 +18,14 @@ const Login = ({history}) => {
                 await app
                     .auth()
                     .signInWithEmailAndPassword(email.value, password.value);
+                form.current.reset();
                 history.push("/");
             } catch (error) {
                 if(error.code === "auth/user-not-found"){
                     setShowModal({view: true, Message: "Network Error, try again later  "});
                     console.log(error);
                     setTimeout(() => setShowModal({view: false}), 4000);
+                    form.current.reset();
                 }
                 else {
                     setShowModal({view: true, Message: "Network Error, try again later  "});

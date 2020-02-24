@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from "react";
+import React, {useCallback, useState, useRef} from "react";
 import {withRouter} from "react-router";
 import app from "./firebase";
 import Nav from './Nav';
@@ -6,6 +6,7 @@ import Modal from "./Modal";
 
 const SignUp = ({history}) => {
     const [showModal, setShowModal] = useState({view: false, Message: ""});
+    const form = useRef(null);
 
     const handleSignUp = useCallback(async event => {
         event.preventDefault();
@@ -15,11 +16,13 @@ const SignUp = ({history}) => {
             await app
                 .auth()
                 .createUserWithEmailAndPassword(email.value, password.value);
+            form.current.reset();
             history.push("/");
         } catch (error) {
             if(error.code === "auth/email-already-in-use"){
                 setShowModal({view: true, Message: "Email Already in use"});
                 setTimeout(() => setShowModal({view: false}), 4000);
+                form.current.reset();
             }
             else {
                 setShowModal({view: true, Message: "Network Error, try again later"});
@@ -35,7 +38,7 @@ const SignUp = ({history}) => {
             <Nav navFunction={() => history.push('/login')} redirection="Log in"/>
             <div className="Login-container">
                 <h1>Sign Up</h1>
-                <form onSubmit={handleSignUp}>
+                <form onSubmit={handleSignUp} ref={form}>
                     <label>
                         Email
                         <input name="email" type="email" placeholder="Email"/>
