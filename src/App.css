@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
 
 .task-div, .todoList button#add {
     height: 200px;
@@ -5,10 +6,16 @@
     margin: 2rem 2rem;
     position: relative;
     box-shadow: 5px 10px 18px black;
+    transition: all 0.2s ease-in-out;
 }
 
 .task-div{
-    background: url("notepad.jpg") 0 0/100% 100%;
+    /*background: url("notepad.jpg") 0 0/100% 100%;*/
+    background: #eee;
+}
+
+.task-div:hover, .todoList button#add:hover{
+    transform: scale(1.1);
 }
 
 .todoList button#add {
@@ -21,8 +28,8 @@
 #saveButton{
     border: none;
     outline: none;
-    background-color: black;
-    color: #efb702;
+    background-color: #abced4;
+    color: black;
     font-size: large;
     height: 30px;
     padding: 5px auto;
@@ -40,7 +47,7 @@
     border: none;
     outline: none;
     background: none;
-    color: white;
+    color: black;
     white-space: initial;
     overflow-style: marquee-block;
     word-wrap: break-word;
@@ -87,15 +94,21 @@
 }
 
 html body {
-    background: url("notepad.jpg") 0 0/ 100% 100vw;
-    /*box-sizing: content-box;*/
-    /*background-color: #ffe146;*/
-    margin: 0;
-    /*position: relative;*/
+    /*background-image: url("notepad.jpg");*/
+    /*background-size: cover;*/
+    /*object-fit: cover;*/
+    /*object-position: center;*/
+    /*margin: 0;*/
+    /*background-repeat: no-repeat;*/
+    background-color: #fff;
+    background-image:
+        linear-gradient(90deg, transparent 117px, #abced4 90px, #abced4 100px, transparent 120px),
+        linear-gradient(#eee .1em, transparent .1em);
+    background-size: 100% 2em;
 }
 
 * {
-    font-family: 'Abril Fatface', cursive;
+    font-family: 'Courgette';
 }
 
 #navbar {
@@ -161,6 +174,7 @@ html body {
     margin-right: 25%;
     border: 2px solid black;
     background: none;
+    outline: none;
 }
 
 .Login-container button:focus {
