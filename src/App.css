@@ -211,6 +211,7 @@ label input:focus {
     background: black;
     color: #abced4;
     z-index: 2000;
+    transform: translateX(-50%);
     animation-duration: 4s;
     animation-name: fade;
 }
