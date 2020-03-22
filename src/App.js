@@ -77,15 +77,6 @@ function appReducer(state, action) {
     }
 }
 
-// function useFirestore(){
-//     app
-//         .firestore()
-//         .collection('users')
-//         .onSnapshot(snapshot => {
-//             const Tasks =
-//         })
-// }
-
 
 export const Context = React.createContext(null);
 
